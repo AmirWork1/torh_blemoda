@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Page404 from './pages/Page404';
 import Header from './components/Header';
-
+import UploadFile from './pages/UploadFile';
 
 function App() {
   
@@ -18,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/UploadFile" element={<UploadFile />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
     </BrowserRouter>
