@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import DropZone from '../components/DropZone';
 import DetailsModal from '../components/DetailsModal';
 
-// הקישור הישיר של גוגל סקריפט (לצורך פיתוח מקומי במחשב)
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwPaJE9Afiq6ea2N_S5kQoIPpQAuApOdlwHGouT3oNs1--ko4d5nY9e8ZzJl65M0_jv/exec";
+// משיכת קישור גוגל ישירות מקובץ .env.local ללא חשיפה ב-Git
+const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
 // הקישור לפונקציית נטליפיי המאובטחת (לצורך האתר הרץ באוויר בנטליפיי)
 const NETLIFY_FUNCTION_URL = "/.netlify/functions/upload";
 
