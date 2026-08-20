@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { validateFile, MAX_SIZE_MB } from '../components/fileValidation';
+
+import React, { useState, useRef } from 'react';
+import { validateFile, MAX_SIZE_MB } from './fileValidation'; // שינוי נתיב לייבוא ישיר באותה תיקייה
 
 export default function DropZone({ onFileSelect }) {
   const [isDragging, setIsDragging] = useState(false);
   const [error, setError] = useState('');
+  const fileInputRef = useRef(null); // שימוש ב-Ref לניהול ה-input
 
   const processFile = (file) => {
     const validationError = validateFile(file);
@@ -37,8 +39,11 @@ export default function DropZone({ onFileSelect }) {
     if (e.target.files && e.target.files[0]) {
       processFile(e.target.files[0]);
     }
-    // מאפס את ה-input כדי לאפשר בחירה חוזרת של אותו קובץ
-    e.target.value = '';
+    e.target.value = ''; // איפוס ה-input
+  };
+
+  const handleClick = () => {
+    fileInputRef.current.click(); // פתיחת חלון בחירת קובץ
   };
 
   return (
@@ -54,15 +59,18 @@ export default function DropZone({ onFileSelect }) {
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
+        onClick={handleClick} // לחיצה על כל אזור הדיב תפתח את חלון בחירת הקובץ
       >
         <input
           type="file"
-          className="position-absolute top-0 start-0 w-100 h-100 opacity-0"
-          style={{ cursor: 'pointer' }}
+          ref={fileInputRef}
+          style={{ display: 'none' }} // הסתרת ה-input המובנה לחלוטין למניעת כפל אירועים
           onChange={handleFileChange}
           accept=".pdf,image/jpeg,image/png,image/webp"
         />
-        <div className="py-3">
+        
+        {/* שימוש ב-pointerEvents: 'none' למניעת ריצוד (flickering) של הגרירה מעל טקסטים */}
+        <div className="py-3" style={{ pointerEvents: 'none' }}>
           <span style={{ fontSize: '3.5rem' }}>{isDragging ? '📥' : '📁'}</span>
           <h5 className="mt-3 text-dark fw-bold">
             {isDragging ? 'שחרר כאן להעלאה' : 'גרור את הסיכום לכאן'}
@@ -81,50 +89,3 @@ export default function DropZone({ onFileSelect }) {
     </div>
   );
 }
-
-
-// import React from 'react';
-
-// export default function DropZone({ onFileSelect }) {
-//   const handleDragOver = (e) => e.preventDefault();
-
-//   const handleDrop = (e) => {
-//     e.preventDefault();
-//     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-//       onFileSelect(e.dataTransfer.files[0]);
-//     }
-//   };
-
-//   const handleFileChange = (e) => {
-//     if (e.target.files && e.target.files[0]) {
-//       onFileSelect(e.target.files[0]);
-//     }
-//   };
-
-//   return (
-//     <div className="card shadow-sm p-4 text-center">
-//       <h3 className="text-primary fw-bold mb-4">ארכיון סיכומי שיעורים</h3>
-//       <p className="text-muted">שתפו סיכומים והערות עם שאר חברי הקהילה</p>
-      
-//       <div 
-//         className="border border-2 border-primary border-dashed rounded-3 p-5 bg-light position-relative"
-//         style={{ borderStyle: 'dashed', cursor: 'pointer', transition: 'all 0.2s' }}
-//         onDragOver={handleDragOver}
-//         onDrop={handleDrop}
-//       >
-//         <input 
-//           type="file" 
-//           className="position-absolute top-0 start-0 w-100 h-100 opacity-0" 
-//           style={{ cursor: 'pointer' }}
-//           onChange={handleFileChange}
-//           accept=".pdf,image/*"
-//         />
-//         <div className="py-3">
-//           <span style={{ fontSize: '3.5rem' }}>📁</span>
-//           <h5 className="mt-3 text-dark fw-bold">גרור את הסיכום לכאן</h5>
-//           <p className="text-muted small mb-0">או לחץ כדי לבחור קובץ מהמחשב</p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }

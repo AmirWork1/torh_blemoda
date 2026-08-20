@@ -7,13 +7,13 @@ export default function Header() {
       <div className='container p-2'>
         <div className='row align-items-center'>
           <div className='logo col-auto'>
-            <h2>סיכומי הרב יצחק</h2>
+            <h2>בית המדרש של מו"ר הרב יצחק בן שחר</h2>
           </div>
           <nav className='col-auto'>
             <ul className='d-md-flex'>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About</Link></li>
-              <li><Link to="/UploadFile">Up load</Link></li>
+              <li><Link to="/">בית</Link></li>
+              <li><Link to="/about">אודות</Link></li>
+              <li><Link to="/UploadFile">העלאת סיכומים</Link></li>
             </ul>
           </nav>
         </div>

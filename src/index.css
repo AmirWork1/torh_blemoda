@@ -1,1 +1,201 @@
-/* NOT IN USE */
+/* --- עיצוב "ספרייה ישנה וחמימה" --- */
+
+:root {
+  --theme-primary: #4E3527;       /* חום מהגוני/אספרסו עמוק, כריכת עור אורגנית */
+  --theme-accent: #B0935A;        /* זהב עתיק / פליז מוברש */
+  --theme-bg: #F4ECE1;            /* נייר פשתן / כותנה טבעית */
+  --theme-surface: #FAF6F0;       /* נייר שנהב רך */
+  --theme-text-main: #2A1E17;     /* דיו שחור-פחם, רך לקריאה */
+  --theme-text-sub: #615243;      /* טקסט משני עמום */
+  --theme-success: #6C7A50;       /* ירוק מרווה / זית עמום */
+  --theme-border: #DFD4C5;        /* נייר קראפט בהיר, גבול עדין */
+  --theme-card-header: #EADFCF;   /* קרם-חול בהיר, גוון נייר מיושן */
+}
+
+/* סגנון כללי של הדף - תמיד במצב בהיר */
+body {
+  background-color: var(--theme-bg);
+  /* טקסטורת נייר עדינה מאוד */
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4) 0%, rgba(240, 226, 204, 0.2) 100%),
+    repeating-linear-gradient(0deg, rgba(168, 140, 100, 0.02) 0px, rgba(168, 140, 100, 0.02) 1px, transparent 1px, transparent 20px);
+  color: var(--theme-text-main);
+  font-family: 'Assistant', 'Heebo', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* כותרות - פונט סריף ספרייתי קלאסי */
+h1, h2, h3, h4, h5, h6, .font-serif, .text-primary {
+  font-family: 'Frank Ruhl Libre', serif;
+  color: var(--theme-text-main) !important;
+  font-weight: 700;
+}
+
+/* 1. הדר (Header) - רקע חום עמוק וכיתוב קרם */
+header.bg-info {
+  background-color: var(--theme-primary) !important;
+  border-bottom: 2px solid var(--theme-accent);
+}
+
+header h2 {
+  font-family: 'Frank Ruhl Libre', serif;
+  color: var(--theme-bg) !important;
+  font-weight: 700;
+}
+
+header nav ul a {
+  color: #FAF3E8 !important;
+  font-weight: 600;
+  transition: color 0.2s ease-in-out;
+}
+
+header nav ul a:hover {
+  color: var(--theme-accent) !important;
+}
+
+/* 2. כרטיסיות (Cards) - עמוד הבית */
+.card {
+  background-color: var(--theme-surface) !important;
+  border: 1px solid var(--theme-border) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 4px 6px rgba(92, 64, 51, 0.04) !important;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 12px rgba(92, 64, 51, 0.08) !important;
+}
+
+.card-header.bg-primary {
+  background-color: var(--theme-card-header) !important;
+  border-bottom: 1px solid var(--theme-border) !important;
+}
+
+.card-header h5 {
+  font-family: 'Frank Ruhl Libre', serif;
+  color: var(--theme-text-main) !important;
+}
+
+.badge.bg-primary {
+  background-color: var(--theme-accent) !important;
+  color: var(--theme-text-main) !important;
+  font-weight: 700;
+  border-radius: 20px;
+}
+
+/* כפתור צפייה בסיכום (CTA) */
+.btn-primary {
+  background-color: var(--theme-primary) !important;
+  border: none !important;
+  color: var(--theme-bg) !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #4A3328 !important;
+  transform: scale(1.02);
+}
+
+.btn-primary:disabled {
+  background-color: var(--theme-text-sub) !important;
+  opacity: 0.6;
+}
+
+/* 3. שורת חיפוש */
+.input-group-text {
+  background-color: var(--theme-surface) !important;
+  border: 1.5px solid var(--theme-border) !important;
+  color: var(--theme-text-sub) !important;
+}
+
+input.form-control {
+  background-color: var(--theme-surface) !important;
+  border: 1.5px solid var(--theme-border) !important;
+  color: var(--theme-text-main) !important;
+}
+
+input.form-control:focus {
+  border-color: var(--theme-accent) !important;
+  box-shadow: 0 0 0 0.25rem rgba(201, 162, 39, 0.25) !important;
+  background-color: var(--theme-surface) !important;
+}
+
+/* 4. DropZone (אזור העלאת קבצים) */
+.border-primary.bg-light {
+  border-color: var(--theme-border) !important;
+  background-color: var(--theme-surface) !important;
+  color: var(--theme-text-main) !important;
+}
+
+.border-primary.bg-light h5 {
+  color: var(--theme-text-main) !important;
+}
+
+/* מצב גרירה פעיל: רקע ירוק-זית עמום שקוף */
+.border-success.bg-success {
+  border-color: var(--theme-success) !important;
+  background-color: rgba(124, 139, 93, 0.12) !important;
+}
+
+.border-success.bg-success h5 {
+  color: var(--theme-success) !important;
+}
+
+/* 5. DetailsModal (מודאל פרטי קובץ) */
+.modal-content {
+  background-color: var(--theme-bg) !important;
+  border: 2px solid var(--theme-border) !important;
+  border-radius: 12px !important;
+}
+
+.modal-header .modal-title {
+  font-family: 'Frank Ruhl Libre', serif;
+  color: var(--theme-primary) !important;
+}
+
+/* מצבי שגיאה וולידציה - אדום חום מעודן */
+.invalid-feedback {
+  color: #8B4A4A !important;
+}
+
+.is-invalid {
+  border-color: #8B4A4A !important;
+}
+
+.is-invalid:focus {
+  box-shadow: 0 0 0 0.25rem rgba(139, 74, 74, 0.2) !important;
+}
+
+/* הודעות התרעה (Alerts) */
+.alert-danger {
+  background-color: #F5E8E8 !important;
+  border-color: #E6C5C5 !important;
+  color: #8B4A4A !important;
+}
+
+.alert-info {
+  background-color: #F3ECE0 !important;
+  border-color: var(--theme-border) !important;
+  color: var(--theme-text-main) !important;
+}
+
+.btn-outline-primary {
+  border-color: var(--theme-primary) !important;
+  color: var(--theme-primary) !important;
+  background-color: transparent !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.btn-outline-primary:hover:not(:disabled) {
+  background-color: var(--theme-primary) !important;
+  color: var(--theme-bg) !important;
+}
+
+/* פינות מעוגלות רכות לרכיבים השונים */
+.rounded-3 {
+  border-radius: 10px !important;
+}

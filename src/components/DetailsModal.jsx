@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import { MAX_TEXT_LENGTH } from '../components/fileValidation';
+import { generateSafeFileName, MAX_TEXT_LENGTH } from './fileValidation';
+
+
+
+
 
 export default function DetailsModal({ file, onCancel, onSubmit }) {
   const [uploaderName, setUploaderName] = useState('');
@@ -18,6 +22,8 @@ export default function DetailsModal({ file, onCancel, onSubmit }) {
     lessonContent.trim().length <= MAX_TEXT_LENGTH &&
     isValidYear(year);
 
+
+    
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     if (!isFormValid) return;
@@ -149,103 +155,3 @@ export default function DetailsModal({ file, onCancel, onSubmit }) {
   );
 }
 
-// import React, { useState } from 'react';
-
-// export default function DetailsModal({ file, onCancel, onSubmit }) {
-//   const [uploaderName, setUploaderName] = useState('');
-//   const [lessonContent, setLessonContent] = useState('');
-//   const [year, setYear] = useState('');
-//   const [isSubmitting, setIsSubmitting] = useState(false);
-
-//   const handleFormSubmit = async (e) => {
-//     e.preventDefault();
-//     if (!uploaderName.trim() || !lessonContent.trim() || !year.trim()) return;
-
-//     setIsSubmitting(true);
-//     // מעבירים את המידע הטקסטואלי לקומפוננטת האב שמנהלת את השליחה האמיתית
-//     await onSubmit({ uploaderName, lessonContent, year });
-//     setIsSubmitting(false);
-//   };
-
-//   return (
-//     <div className="modal show d-block" tabIndex="-1" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-//       <div className="modal-dialog modal-dialog-centered">
-//         <div className="modal-content p-2">
-          
-//           <div className="modal-header border-0 d-flex justify-content-between align-items-center">
-//             <h5 className="modal-title fw-bold text-primary">השלמת פרטי הסיכום</h5>
-//             <button type="button" className="btn-close m-0" onClick={onCancel}></button>
-//           </div>
-          
-//           <form onSubmit={handleFormSubmit}>
-//             <div className="modal-body text-start">
-              
-//               <div className="alert alert-info py-2 px-3 mb-4 d-flex align-items-center justify-content-between">
-//                 <span className="text-truncate me-2 small fw-semibold">📎 {file.name}</span>
-//                 <span className="badge bg-primary">קובץ נקלט</span>
-//               </div>
-
-//               <div className="mb-3">
-//                 <label htmlFor="modalUploader" className="form-label fw-semibold">שם כותב/מעלה הסיכום</label>
-//                 <input 
-//                   type="text" 
-//                   className="form-control" 
-//                   id="modalUploader" 
-//                   placeholder="ישראל ישראלי"
-//                   value={uploaderName}
-//                   onChange={(e) => setUploaderName(e.target.value)}
-//                 />
-//               </div>
-
-//               <div className="mb-3">
-//                 <label htmlFor="modalContent" className="form-label fw-semibold">תוכן השיעור / נושא</label>
-//                 <input 
-//                   type="text" 
-//                   className="form-control" 
-//                   id="modalContent" 
-//                   placeholder="למשל: הלכות שבת, עיון בבא קמא"
-//                   value={lessonContent}
-//                   onChange={(e) => setLessonContent(e.target.value)}
-//                 />
-//               </div>
-
-//               <div className="mb-3">
-//                 <label htmlFor="modalYear" className="form-label fw-semibold">שנת מסירת השיעור</label>
-//                 <input 
-//                   type="text" 
-//                   className="form-control" 
-//                   id="modalYear" 
-//                   placeholder="למשל: תשפ&quot;ו, 2026"
-//                   value={year}
-//                   onChange={(e) => setYear(e.target.value)}
-//                 />
-//               </div>
-
-//             </div>
-            
-//             <div className="modal-footer border-0">
-//               <button type="button" className="btn btn-outline-secondary px-4" onClick={onCancel} disabled={isSubmitting}>
-//                 ביטול
-//               </button>
-//               <button 
-//                 type="submit" 
-//                 className="btn btn-primary px-4 fw-bold"
-//                 disabled={!uploaderName.trim() || !lessonContent.trim() || !year.trim() || isSubmitting}
-//               >
-//                 {isSubmitting ? (
-//                   <>
-//                     <span className="spinner-border spinner-border-sm me-2" role="status"></span>
-//                     מעלה...
-//                   </>
-//                 ) : (
-//                   'אשר ופרסם'
-//                 )}
-//               </button>
-//             </div>
-//           </form>
-
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
