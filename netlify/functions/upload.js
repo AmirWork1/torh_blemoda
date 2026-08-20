@@ -1,5 +1,6 @@
 export async function handler(event, context) {
-  if (event.httpMethod !== "POST") {
+  // תמיכה הן ב-GET (לקריאת נתונים) והן ב-POST (להעלאת קבצים)
+  if (event.httpMethod !== "POST" && event.httpMethod !== "GET") {
     return {
       statusCode: 405,
       body: "Method Not Allowed",
@@ -12,17 +13,26 @@ export async function handler(event, context) {
       return {
         statusCode: 500,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ status: "error", message: "Google Script URL not configured in environment variables" }),
+        body: JSON.stringify({ status: "error", message: "Google Script URL not configured in Netlify environment variables" }),
       };
     }
 
-    const response = await fetch(googleScriptUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "text/plain",
-      },
-      body: event.body,
-    });
+    let response;
+    if (event.httpMethod === "GET") {
+      // ניתוב בקשת GET לגוגל סקריפט
+      response = await fetch(googleScriptUrl, {
+        method: "GET"
+      });
+    } else {
+      // ניתוב בקשת POST לגוגל סקריפט
+      response = await fetch(googleScriptUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain",
+        },
+        body: event.body,
+      });
+    }
 
     const data = await response.json();
 
