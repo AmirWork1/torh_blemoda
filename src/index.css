@@ -39,19 +39,24 @@ header.bg-info {
   border-bottom: 2px solid var(--theme-accent);
 }
 
-header h2 {
+header .navbar-brand {
   font-family: 'Frank Ruhl Libre', serif;
   color: var(--theme-bg) !important;
   font-weight: 700;
+  transition: color 0.2s ease-in-out;
 }
 
-header nav ul a {
+header .navbar-brand:hover {
+  color: var(--theme-accent) !important;
+}
+
+header .nav-link {
   color: #FAF3E8 !important;
   font-weight: 600;
   transition: color 0.2s ease-in-out;
 }
 
-header nav ul a:hover {
+header .nav-link:hover {
   color: var(--theme-accent) !important;
 }
 
