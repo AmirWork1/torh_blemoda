@@ -1,6 +1,8 @@
 // utils/fileValidation.js
 export const ALLOWED_MIME_TYPES = [
   'application/pdf',
+  'application/msword', // עבור קבצי Word ישנים (.doc)
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
   'image/jpeg',
   'image/png',
   'image/webp',
