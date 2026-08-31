@@ -1,4 +1,4 @@
-import React from 'react';
+ο»Ώimport React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -7,26 +7,26 @@ export default function Footer() {
       <div className="container">
         <div className="row align-items-center justify-content-between text-center text-md-start">
           <div className="col-md-auto mb-3 mb-md-0 text-md-start">
-            <h5 className="font-serif fw-bold text-white mb-1">ριλεξι δψα ιφηχ</h5>
-            <p className="small mb-0" style={{ color: 'var(--theme-bg)' }}>ΰψλιεο ωιςεψιν εριλεξιν μδεψγδ εφτιιδ</p>
+            <h5 className="font-serif fw-bold text-white mb-1">Χ΅Χ™Χ›Χ•ΧΧ™ Χ”Χ¨Χ‘ Χ™Χ¦Χ—Χ§</h5>
+            <p className="small mb-0" style={{ color: 'var(--theme-bg)' }}>ΧΧ¨Χ›Χ™Χ•Χ Χ©Χ™ΧΆΧ•Χ¨Χ™Χ Χ•Χ΅Χ™Χ›Χ•ΧΧ™Χ ΧΧ”Χ•Χ¨Χ“Χ” Χ•Χ¦Χ¤Χ™Χ™Χ”</p>
           </div>
           <div className="col-md-auto">
             <ul className="list-unstyled d-flex justify-content-center gap-4 mb-0">
-              <li>
-                <Link to="/" className="text-decoration-none footer-link">γσ δαιϊ</Link>
+              <li> 
+                 <Link to="/" className="text-decoration-none footer-link">Χ“Χ£ Χ”Χ‘Χ™Χª</Link>
               </li>
               <li>
-                <Link to="/about" className="text-decoration-none footer-link">ΰεγεϊ</Link>
+                <Link to="/about" className="text-decoration-none footer-link">ΧΧ•Χ“Χ•Χª</Link>
               </li>
               <li>
-                <Link to="/UploadFile" className="text-decoration-none footer-link">δςμΰϊ ριλεν</Link>
+                <Link to="/UploadFile" className="text-decoration-none footer-link">Χ”ΧΆΧΧΧª Χ΅Χ™Χ›Χ•Χ</Link>
               </li>
             </ul>
           </div>
         </div>
         <hr className="my-3" style={{ borderColor: 'rgba(244, 236, 225, 0.15)' }} />
         <div className="text-center small" style={{ color: 'var(--theme-bg)' }}>
-          © {new Date().getFullYear()} λμ δζλειεϊ ωξεψεϊ μαιϊ δξγψω. παπδ αΰδαδ μϊεψδ εμεξγιδ.
+          Β© {new Date().getFullYear()} Χ›Χ Χ”Χ–Χ›Χ•Χ™Χ•Χª Χ©ΧΧ•Χ¨Χ•Χª ΧΧ‘Χ™Χª Χ”ΧΧ“Χ¨Χ©. Χ Χ‘Χ Χ” Χ‘ΧΧ”Χ‘Χ” ΧΧªΧ•Χ¨Χ” Χ•ΧΧ•ΧΧ“Χ™Χ”.
         </div>
       </div>
     </footer>
