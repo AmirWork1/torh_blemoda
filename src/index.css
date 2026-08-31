@@ -60,6 +60,59 @@ header .nav-link:hover {
   color: var(--theme-accent) !important;
 }
 
+/* כפתור המבורגר - מוקף בקו זהב עדין וברור */
+header .navbar-toggler {
+  border: 1.5px solid var(--theme-accent) !important;
+  padding: 6px 10px !important;
+  border-radius: 6px !important;
+  transition: all 0.2s ease-in-out;
+}
+
+header .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.15rem rgba(176, 147, 90, 0.3) !important;
+}
+
+/* התפריט מתקפל במסכי טלפון - נפתח מצד ימין, מוקף בקו מעוצב וצמוד */
+@media (max-width: 767.98px) {
+  header .navbar-collapse {
+    background-color: var(--theme-surface) !important;
+    border: 1.5px solid var(--theme-border) !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+    margin-top: 10px !important;
+    box-shadow: 0 4px 10px rgba(92, 64, 51, 0.08) !important;
+    text-align: right !important; /* יישור לימין לניווט קל */
+  }
+  
+  header .navbar-collapse .nav-link {
+    color: var(--theme-text-main) !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    display: block !important;
+  }
+  
+  header .navbar-collapse .nav-link:hover {
+    background-color: var(--theme-card-header) !important;
+    color: var(--theme-primary) !important;
+  }
+}
+
+/* --- 6. באנר תחתון (Footer) --- */
+footer.bg-info {
+  background-color: var(--theme-primary) !important;
+  border-top: 2px solid var(--theme-accent) !important;
+}
+
+footer .footer-link {
+  transition: color 0.2s ease-in-out;
+  color: #FAF3E8 !important;
+}
+
+footer .footer-link:hover {
+  color: var(--theme-accent) !important;
+}
+
+
 /* 2. כרטיסיות (Cards) - עמוד הבית */
 .card {
   background-color: var(--theme-surface) !important;

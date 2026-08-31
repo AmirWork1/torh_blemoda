@@ -76,7 +76,7 @@ export default function DropZone({ onFileSelect }) {
             {isDragging ? 'שחרר כאן להעלאה' : 'גרור את הסיכום לכאן'}
           </h5>
           <p className="text-muted small mb-0">
-            או לחץ כדי לבחור קובץ מהמחשב (PDF/תמונה, עד {MAX_SIZE_MB}MB)
+            או לחץ כדי לבחור קובץ מהמחשב (word/PDF/תמונה. עד {MAX_SIZE_MB}MB)
           </p>
         </div>
       </div>

@@ -36,7 +36,7 @@ export default function Header() {
           <ul className="navbar-nav ms-auto mb-0 gap-1 mt-2 mt-md-0">
             <li className="nav-item">
               <Link className="nav-link" to="/" onClick={closeMenu}>
-                 דף הבית
+                מאגר הסיכומים
               </Link>
             </li>
             <li className="nav-item">

@@ -7,6 +7,7 @@ import About from './pages/About';
 import Page404 from './pages/Page404';
 import Header from './components/Header';
 import UploadFile from './pages/UploadFile';
+import Footer from './components/Footer';
 
 function App() {
   
@@ -21,6 +22,8 @@ function App() {
         <Route path="/UploadFile" element={<UploadFile />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
+      {/* footer */}
+      <Footer />
     </BrowserRouter>
   )
 }
