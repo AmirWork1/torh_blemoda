@@ -1,11 +1,11 @@
 // utils/fileValidation.js
 export const ALLOWED_MIME_TYPES = [
   'application/pdf',
-  'application/msword', // עבור קבצי Word ישנים (.doc)
-  'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
   'image/jpeg',
   'image/png',
   'image/webp',
+  'application/msword', // doc
+  'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // docx
 ];
 
 export const MAX_SIZE_MB = 10;
@@ -15,7 +15,7 @@ export function validateFile(file) {
   if (!file) return 'לא נבחר קובץ';
 
   if (!ALLOWED_MIME_TYPES.includes(file.type)) {
-    return 'סוג קובץ לא נתמך. יש להעלות PDF או תמונה בלבד';
+    return 'סוג קובץ לא נתמך. יש להעלות PDF, תמונה או מסמך Word בלבד';
   }
 
   if (file.size > MAX_SIZE_MB * 1024 * 1024) {

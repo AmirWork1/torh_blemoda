@@ -66,7 +66,7 @@ export default function DropZone({ onFileSelect }) {
           ref={fileInputRef}
           style={{ display: 'none' }} // הסתרת ה-input המובנה לחלוטין למניעת כפל אירועים
           onChange={handleFileChange}
-          accept=".pdf,image/jpeg,image/png,image/webp"
+          accept=".pdf,image/jpeg,image/png,image/webp,.doc,.docx"
         />
         
         {/* שימוש ב-pointerEvents: 'none' למניעת ריצוד (flickering) של הגרירה מעל טקסטים */}
